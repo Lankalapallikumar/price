@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Comparison App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4b8ec8;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #3bb06a;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #9f4970;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+        .product-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .product-card button {
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #00509E;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #00509E;
+            color: white;
+        }
+        .price-prediction {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Price Comparison App</h1>
+        <p>Compare Prices, Predict Trends, and Save Big!</p>
+    </header>
+
+    <nav>
+        <a href="#products">Products</a>
+        <a href="#comparison">Comparison Table</a>
+        <a href="#prediction">Price Prediction</a>
+    </nav>
+
+    <div class="container">
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Featured Products</h2>
+            <div class="product">
+                <div class="product-card">
+                    <img src="img.webp.crdownload" alt="Product 1">
+                    <h3>Smartphone</h3>
+                    <p>Price: $699</p>
+                    <button onclick="compareProduct('Smartphone', 699)">Compare</button>
+                </div>
+                <div class="product-card">
+                    <img src="th (1).jpeg" alt="Product 2">
+                    <h3>Smartwatch</h3>
+                    <p>Price: $199</p>
+                    <button onclick="compareProduct('Smartwatch', 199)">Compare</button>
+                </div>
+                <div class="product-card">
+                    <img src="th.jpeg" alt="Product 3">
+                    <h3>Laptop</h3>
+                    <p>Price: $899</p>
+                    <button onclick="compareProduct('Laptop', 899)">Compare</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section id="comparison">
+            <h2>Comparison Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Website</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonTable">
+                    <!-- Comparison data will populate here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Price Prediction Section -->
+        <section id="prediction">
+            <h2>Price Prediction</h2>
+            <div class="price-prediction">
+                <p><strong>Upcoming Trend:</strong> Smartphone prices are expected to drop by 10% during the holiday season!</p>
+                <button onclick="alert('Prediction feature coming soon!')">Explore Trends</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+<script>
+    function compareProduct(product, price) {
+        const comparisonTable = document.getElementById('comparisonTable');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${product}</td>
+            <td>ExampleStore.com</td>
+            <td>$${price}</td>
+            <td>4.5/5</td>
+        `;
+        comparisonTable.appendChild(row);
+        alert(`${product} added to the comparison table.`);
+    }
+</script>
+</html>
